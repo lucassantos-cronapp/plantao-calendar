@@ -43,12 +43,13 @@ app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
       }
       
      
-      // MODEL EVENTS
+      // MODEL Calendário:
+      
       vm.events = [
         {
           title: 'Dr. Pedro Alves (07 - 13h) - HCA - Cirugia',
           medico: 'Dra. Fernanda Santos',
-          responsavel: false,
+          responsavel: false, // Caso true, sinaliza que o médico é responsável no Plantão
           local: 'Hospital Espanhol - UTI',
           color: calendarConfig.colorTypes.warning,
           startsAt: moment().subtract(9, 'days').toDate(),
@@ -123,7 +124,6 @@ app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
   
       vm.updateWeekCollors = function(){
         console.log(vm.semanas);
-        
       }
   
       vm.addEvent = function() {
