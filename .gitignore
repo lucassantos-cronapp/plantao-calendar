@@ -20,6 +20,3 @@ buildNumber.properties
 .classpath
 .project
 *.iml
-src/main/webapp/plugins/
-src/main/mobileapp/node_modules/
-src/main/mobileapp/www/plugins/
