@@ -165,19 +165,21 @@
   <!-- MODAL TEST -->
     <div class="row">
   
-      <div ng-hide="true" class="col-md-6 col-center-fix text-center">
-        <div class="btn-group">
+      <div class="col-md-6 col-center-fix text-center">
+             
+          
+        <div class="btn-group"  >
   
           <button
-            class="btn btn-primary"
+            class="btn-seletor"
             mwl-date-modifier
             date="vm.viewDate"
             decrement="vm.calendarView"
             ng-click="vm.cellIsOpen = false">
-            Anterior
+           <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
           </button>
           <button
-            class="btn btn-default"
+            class="btn-seletor"
             mwl-date-modifier
             date="vm.viewDate"
             set-to-today
@@ -185,12 +187,12 @@
             Atual
           </button>
           <button
-            class="btn btn-primary"
+            class="btn-seletor"
             mwl-date-modifier
             date="vm.viewDate"
             increment="vm.calendarView"
             ng-click="vm.cellIsOpen = false">
-            Próximo
+            Próximo <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </button>
         </div>
       </div>

@@ -93,3 +93,11 @@ text-transform: capitalize;
 .cal-week-box-cell{
   display: none !important;
 }
+
+.btn-seletor{
+    background: #069;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    color: white;
+}
