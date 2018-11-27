@@ -36,6 +36,15 @@ app.controller('CalendarCtrl', function(moment, alert, calendarConfig, PlantaoAP
       }
       
       
+      // POPULANDO O CALENDÁRIO
+      
+      /**
+        PlantaoAPIService.getRealData(), é possível consumir as informações 
+        do banco de dados quando implementado, para isso,
+        é necessário atribuir a resposta da requisição a variável de escopo, vm.events (aplicação web)
+        vm.plantoes (aplicação mobile)      
+      */
+      
       // * Populando o calendário com dados mokados de um service *
       vm.events = PlantaoAPIService.getData();
       

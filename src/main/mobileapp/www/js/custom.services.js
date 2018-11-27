@@ -118,6 +118,7 @@ app.factory('PlantaoAPIService', function($http, calendarConfig){
           return mockData
         },
         getRealData: function(){
+          
           return $http.get('https://jsonplaceholder.typicode.com/todos/')
         }
       }

@@ -34,7 +34,7 @@
     </div>
   </nav>
 </div>
-<div ui-view="" class="container-fluid main-view" data-container="true">
+<datasource name="" entity="" keys="" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill="" data-component="crn-datasource" class="component-holder" id="crn-datasource-330749"></datasource><div ui-view="" class="container-fluid main-view" data-container="true">
  <div ng-controller="CalendarCtrl as vm">
   <h2 class="text-center month-title">{{ vm.calendarTitle }}</h2>
 <!-- MODAL DETALHES -->
@@ -78,28 +78,13 @@
   <div class="row row-seletor">
     <div class="col-md-6 col-center-fix text-center">
       <div class="btn-group">
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          decrement="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
+        <button class="btn btn-primary" mwl-date-modifier="" date="vm.viewDate" decrement="vm.calendarView" ng-click="vm.cellIsOpen = false">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
         </button>
-        <button
-          class="btn btn-default"
-          mwl-date-modifier
-          date="vm.viewDate"
-          set-to-today
-          ng-click="vm.cellIsOpen = false">
+        <button class="btn btn-default" mwl-date-modifier="" date="vm.viewDate" set-to-today="" ng-click="vm.cellIsOpen = false">
           Atual
         </button>
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          increment="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
+        <button class="btn btn-primary" mwl-date-modifier="" date="vm.viewDate" increment="vm.calendarView" ng-click="vm.cellIsOpen = false">
           Próximo <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </button>
       </div>
@@ -148,21 +133,7 @@
             </div>
             
         </div>
-          <mwl-calendar
-            class="comp-calendar"
-            events="vm.events"
-            view="vm.calendarView"
-            view-title="vm.calendarTitle"
-            view-date="vm.viewDate"
-            on-event-click="vm.eventClicked(calendarEvent)"
-            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-            cell-is-open="vm.cellIsOpen"
-            day-view-start="06:00"
-            day-view-end="22:59"
-            day-view-split="30"
-            cell-modifier="vm.modifyCell(calendarCell)"
-            cell-auto-open-disabled="true"
-            on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
+          <mwl-calendar class="comp-calendar" events="vm.events" view="vm.calendarView" view-title="vm.calendarTitle" view-date="vm.viewDate" on-event-click="vm.eventClicked(calendarEvent)" on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd" cell-is-open="vm.cellIsOpen" day-view-start="06:00" day-view-end="22:59" day-view-split="30" cell-modifier="vm.modifyCell(calendarCell)" cell-auto-open-disabled="true" on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
           </mwl-calendar>    
         </div>
     </div>
