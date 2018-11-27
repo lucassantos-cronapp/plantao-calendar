@@ -10,7 +10,7 @@ app.controller('AfterPageController', function($scope) {
  //
 });
 
-app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
+app.controller('CalendarCtrl', function(moment, alert, calendarConfig, PlantaoAPIService, $http) {
       calendarConfig.dateFormatter = 'moment';
       var vm = this;
   
@@ -29,97 +29,26 @@ app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
           alert.show('Deleted', args.calendarEvent);
         }
       }];
-      vm.week = {};
-      vm.week.colors = [
-        '#CCCCCC',
-        '#b3e2b0',
-        '#b8e2ff',
-        '#f17878',
-        '#b8e2ff'
-        ];
+
       
       vm.setColor = function(event){
         console.log(event);
       }
       
-     
-      // MODEL Calendário:
       
-      vm.events = [
-        {
-          title: 'Dr. Pedro Alves (07 - 13h) - HCA - Cirugia',
-          medico: 'Dra. Fernanda Santos',
-          responsavel: false, // Caso true, sinaliza que o médico é responsável no Plantão
-          local: 'Hospital Espanhol - UTI',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: moment().subtract(9, 'days').toDate(),
-          endsAt: moment().subtract(9, 'days').toDate(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-        {
-          title: 'Dra. Fernanda Santos (07 - 13h) - Hospital Aliança - UTI',
-          medico: 'Dra. Fernanda Santos',
-          responsavel: true,
-          local: 'Hospital Espanhol - UTI',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: moment().subtract(6, 'days').toDate(),
-          endsAt: moment().subtract(6, 'days').toDate(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-        {
-          title: 'Dr. José Herique (07 - 13h) - Hospital Espanhol - UTI',
-          medico: 'Dra. Carla Silva',
-          responsavel: false,
-          local: 'Hospital Espanhol - UTI',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: moment().subtract(1, 'days').toDate(),
-          endsAt: moment().subtract(1, 'days').toDate(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-        {
-          title: 'Dra. Carla Silva (07 - 13h) - HCA - Pediatria',
-          medico: 'Dra. Carla Silva',
-          responsavel: false,
-          local: 'HCA - Pediatria',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: new Date(),
-          endsAt: new Date(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-        {
-          title: 'Dr. João Fernandes (07 - 13h) - Hospital Porrtuguês - Unidade Móvel',
-          medico: 'Dr. João Fernandes',
-          responsavel: true,
-          local: 'Hospital Porrtuguês - Unidade Móvel',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: new Date(),
-          endsAt: new Date(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-        {
-          title: 'Dra. Bruna Werneck (07 - 13h) - HCA - UTI',
-          medico: 'Dra. Bruna Werneck',
-          responsavel: false,
-          local: 'HCA - UTI',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: moment().add(1, 'days').toDate(),
-          endsAt: moment().add(1, 'days').toDate(),
-          draggable: false,
-          resizable: true,
-          actions: actions
-        },
-      ];
-  
+      // * Populando o calendário com dados mokados de um service *
+      vm.events = PlantaoAPIService.getData();
+      
+      
+      // * Exemplo de requisição real a base de dados *
+      
+      // PlantaoAPIService.getRealData()
+      //   .then(function(res){
+      //     console.log(res)
+      //   }, function(err){
+      //     console.log(err)
+      //   });
+
       vm.cellIsOpen = true;
   
       vm.updateWeekCollors = function(){
@@ -192,8 +121,9 @@ app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
       };
     });
     
+ 
+    
   app.factory('alert', function($modal) {
-
     function show(action, event) {
       return $modal.open({
         templateUrl: './modalContent.html',
@@ -210,6 +140,5 @@ app.controller('CalendarCtrl', function($scope, moment, alert, calendarConfig) {
     return {
       show: show
     };
-
   });
   
