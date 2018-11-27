@@ -42,12 +42,12 @@ app.controller('CalendarCtrl', function(moment, alert, calendarConfig, PlantaoAP
       
       // * Exemplo de requisição real a base de dados *
       
-      // PlantaoAPIService.getRealData()
-      //   .then(function(res){
-      //     console.log(res)
-      //   }, function(err){
-      //     console.log(err)
-      //   });
+      PlantaoAPIService.getRealData()
+        .then(function(res){
+          console.log(res)
+        }, function(err){
+          console.log(err)
+        });
 
       vm.cellIsOpen = true;
   

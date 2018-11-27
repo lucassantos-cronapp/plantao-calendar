@@ -96,13 +96,13 @@ var app = (function() {
         .state('main', {
           url: "/",
           controller: 'HomeController',
-          templateUrl: 'views/home.view.html'
+          templateUrl: 'views/logged/agenda.view.html'
         })
 
         .state('home', {
           url: "/home",
           controller: 'HomeController',
-          templateUrl: 'views/home.view.html'
+          templateUrl: 'views/logged/agenda.view.html'
         })
 
         .state('home.pages', {
